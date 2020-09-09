@@ -1,1 +1,41 @@
-??place 
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="4.0" method="upgrade">
+    <name>Hello Universe!</name>
+    <creationDate>09 September 2020</creationDate>
+    <copyright>2020 Glenn Arkell</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <author>Glenn Arkell</author>
+    <authorEmail>glenn@glennarkell.com.au</authorEmail>
+    <authorUrl>http://www.glennarkell.com.au</authorUrl>
+    <version>4.0.00</version>
+    <description>Hello Universe component description</description>
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <update> <!-- Runs on update -->
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql/</schemapath>
+		</schemas>
+    </update>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <files folder="site">
+        <filename>hellouniverse.php</filename>
+    </files>
+
+	<administration>
+		<menu link="option=com_hellouniverse" >Joomla!4 Saids Hello Universe!</menu>
+		<files folder="administrator">
+			<filename>hellouniverse.php</filename>
+			<folder>sql</folder>
+		</files>
+	</administration>
+
+</extension>
